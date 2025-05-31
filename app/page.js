@@ -142,7 +142,7 @@ export default function Home() {
       description: "Application météo en temps réel",
       image: weatherapp,
       details:
-        "Application météo avec géolocalisation, prévisions détaillées et historique. Utilise l'API OpenWeather et React.",
+        "Application météo avec géolocalisation, prévisions détaillées et historique. Utilise l'API OpenWeather Express JS.",
       demoUrl: "https://frontweatherapp.vercel.app/login.html",
       codeUrl: "https://github.com/SE-XPRT/Frontweatherapp",
       priority: true,
