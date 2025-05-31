@@ -1,0 +1,231 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --COLOR1: #0f172a;
+  --COLOR2: #1e293b;
+  --COLOR3: #334155;
+  --ACCENT: #3b82f6;
+  --ACCENT-HOVER: #2563eb;
+  --TEXT: #f8fafc;
+}
+
+/* Reset optimisé */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: Poppins, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+body {
+  background: var(--COLOR1);
+  color: var(--TEXT);
+  min-height: 100vh;
+  overflow-x: hidden;
+  line-height: 1.5;
+}
+
+/* Sections */
+section {
+  scroll-margin-top: 5rem;
+}
+
+/* Box */
+.box {
+  background: var(--COLOR2);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Boutons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  background: var(--ACCENT);
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: var(--ACCENT-HOVER);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 2px solid var(--ACCENT);
+  color: var(--ACCENT);
+}
+
+.btn-outline:hover {
+  background: var(--ACCENT);
+  color: white;
+}
+
+/* Grilles */
+.bentoGrid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+/* Zones de la grille */
+.one {
+  grid-column: span 4;
+  grid-row: span 2;
+}
+.two {
+  grid-column: span 8;
+  grid-row: span 1;
+}
+.three {
+  grid-column: span 8;
+  grid-row: span 2;
+}
+.five {
+  grid-column: span 4;
+  grid-row: span 1;
+}
+.six {
+  grid-column: span 4;
+  grid-row: span 1;
+}
+.seven {
+  grid-column: span 8;
+  grid-row: span 1;
+}
+
+/* Compétences */
+.skill {
+  padding: 0.75rem;
+  background: var(--COLOR3);
+  border-radius: 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.skill-level {
+  height: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.skill-level-fill {
+  height: 100%;
+  background: var(--ACCENT);
+  border-radius: 2px;
+}
+
+/* Projets */
+.project-card {
+  background: var(--COLOR3);
+  border-radius: 0.75rem;
+  overflow: hidden;
+}
+
+.project-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Titres */
+.titlebox {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--TEXT);
+}
+
+/* Grilles responsives */
+.project-grid,
+.skills-grid {
+  display: grid;
+  gap: 1rem;
+  width: 100%;
+}
+
+.project-grid {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.skills-grid {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+/* Media queries */
+@media (max-width: 1200px) {
+  .bentoGrid {
+    grid-template-columns: repeat(8, 1fr);
+    gap: 0.75rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .bentoGrid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.5rem;
+  }
+
+  .box {
+    padding: 1rem;
+  }
+
+  .one,
+  .two,
+  .three,
+  .five,
+  .six,
+  .seven {
+    grid-column: span 4;
+    grid-row: span 1;
+  }
+}
+
+@media (max-width: 480px) {
+  .bentoGrid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .one,
+  .two,
+  .three,
+  .five,
+  .six,
+  .seven {
+    grid-column: 1;
+    grid-row: auto;
+  }
+}
+
+/* Focus */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--ACCENT);
+  outline-offset: 2px;
+}
+
+/* Images */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
