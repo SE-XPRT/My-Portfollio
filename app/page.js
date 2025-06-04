@@ -6,6 +6,7 @@ import me from "./assets/me.png";
 import jsImage from "./assets/js.png";
 import mymoviz from "./assets/mymoviz.jpg";
 import weatherapp from "./assets/weatherapp.jpg";
+import solblaze from "./assets/solblaze.png";
 import nextImage from "./assets/nextJS.png";
 import reactImage from "./assets/React.png";
 import tailwindImage from "./assets/tailwinds.png";
@@ -78,15 +79,17 @@ const ProjectCard = memo(({ project }) => (
         >
           <SquareArrowOutUpRight size={20} /> Demo
         </a>
-        <a
-          href={project.codeUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="btn btn-outline hover-lift w-full sm:w-auto justify-center"
-          data-tooltip="Voir le code source"
-        >
-          <Code2 size={20} /> Code
-        </a>
+        {project.codeUrl && (
+          <a
+            href={project.codeUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn-outline hover-lift w-full sm:w-auto justify-center"
+            data-tooltip="Voir le code source"
+          >
+            <Code2 size={20} /> Code
+          </a>
+        )}
       </div>
     </div>
   </div>
@@ -111,6 +114,7 @@ export default function Home() {
         jsImage.src,
         mymoviz.src,
         weatherapp.src,
+        solblaze.src,
         nextImage.src,
         reactImage.src,
         tailwindImage.src,
@@ -145,6 +149,14 @@ export default function Home() {
         "Application météo avec géolocalisation, prévisions détaillées et historique. Utilise l'API OpenWeather et React.",
       demoUrl: "https://frontweatherapp.vercel.app/login.html",
       codeUrl: "https://github.com/SE-XPRT/Frontweatherapp",
+      priority: true,
+    },
+    {
+      title: "SOL BLAZE",
+      description: "Application burner & instant buy de crypto-monnaies",
+      image: solblaze,
+      details: "Application web3 burner & instant buy de crypto-monnaies.",
+      demoUrl: "https://solblaze.space",
       priority: true,
     },
   ];
