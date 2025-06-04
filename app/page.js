@@ -132,6 +132,15 @@ export default function Home() {
   // Données des projets
   const projects = [
     {
+      title: "SOL BLAZE",
+      description: "Application burner & instant buy de crypto-monnaies",
+      image: solblaze,
+      details:
+        "Application web3 burner & instant buy de crypto-monnaies. Utilise Next.js, Tailwind CSS, Solana.",
+      demoUrl: "https://solblaze.space",
+      priority: true,
+    },
+    {
       title: "My Moviz",
       description: "Application de gestion de films et séries",
       image: mymoviz,
@@ -149,15 +158,6 @@ export default function Home() {
         "Application météo avec géolocalisation, prévisions détaillées et historique. Utilise l'API OpenWeather Express JS.",
       demoUrl: "https://frontweatherapp.vercel.app/login.html",
       codeUrl: "https://github.com/SE-XPRT/Frontweatherapp",
-      priority: true,
-    },
-    {
-      title: "SOL BLAZE",
-      description: "Application burner & instant buy de crypto-monnaies",
-      image: solblaze,
-      details:
-        "Application web3 burner & instant buy de crypto-monnaies. Utilise Next.js, Tailwind CSS, Solana.",
-      demoUrl: "https://solblaze.space",
       priority: true,
     },
   ];
