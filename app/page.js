@@ -45,7 +45,7 @@ const SkillCard = memo(({ skill }) => (
 ));
 
 const ProjectCard = memo(({ project }) => (
-  <div className="project-card hover-lift bg-[var(--SURFACE-LIGHT)]">
+  <div className="project-card hover-lift bg-[var(--SURFACE-LIGHT)] flex flex-col h-full">
     <div className="project-image relative h-48 md:h-56">
       <Image
         src={project.image}
@@ -65,11 +65,11 @@ const ProjectCard = memo(({ project }) => (
         </p>
       </div>
     </div>
-    <div className="p-4 md:p-6 space-y-4">
+    <div className="flex-1 flex flex-col justify-between p-4 md:p-6 space-y-4">
       <p className="text-[var(--TEXT-SECONDARY)] text-sm md:text-base">
         {project.details}
       </p>
-      <div className="flex flex-col sm:flex-row gap-3">
+      <div className="flex flex-col sm:flex-row gap-3 mt-auto">
         <a
           href={project.demoUrl}
           target="_blank"
@@ -155,7 +155,8 @@ export default function Home() {
       title: "SOL BLAZE",
       description: "Application burner & instant buy de crypto-monnaies",
       image: solblaze,
-      details: "Application web3 burner & instant buy de crypto-monnaies.",
+      details:
+        "Application web3 burner & instant buy de crypto-monnaies. Utilise Next.js, Tailwind CSS, Solana.",
       demoUrl: "https://solblaze.space",
       priority: true,
     },
@@ -294,7 +295,6 @@ export default function Home() {
               </div>
             </div>
           </section>
-
           {/* Compétences */}
           <section id="skills" className="box two glass fade-in">
             <div className="box-content">
@@ -310,27 +310,35 @@ export default function Home() {
               </div>
             </div>
           </section>
-
           {/* Projets */}
           <section id="projects" className="box three glass fade-in">
-            <div className="box-content">
+            <div className="box-content overflow">
               <div className="box-header">
                 <h2 className="titlebox flex items-center gap-2">
                   <Code2 size={24} className="text-[var(--PRIMARY)]" />
                   Projets
                 </h2>
               </div>
-              <div className="box-body">
-                <div className="project-grid">
-                  {projects.map((project, index) => (
-                    <ProjectCard key={index} project={project} />
-                  ))}
+              <div className="box-body ">
+                {/* Ajout d'un conteneur scrollable horizontal */}
+                <div
+                  className="w-full overflow-x-auto  [&::-webkit-scrollbar]:w-2
+  [&::-webkit-scrollbar-track]:bg-gray-500 [&::-webkit-scrollbar-thumb]:bg-gray-400 [&::-webkit-scrollbar-thumb]:rounded-lg"
+                >
+                  <div className="flex flex-row gap-6 min-w-[600px]">
+                    {projects.map((project, index) => (
+                      <div
+                        key={index}
+                        className="min-w-[320px] max-w-xs flex-shrink-0"
+                      >
+                        <ProjectCard project={project} />
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
           </section>
-
-          {/* Contact */}
           <section id="contact" className="box five glass fade-in">
             <div className="box-content">
               <div className="box-header">
@@ -421,7 +429,6 @@ export default function Home() {
               </div>
             </div>
           </section>
-
           {/* Formation */}
           <section className="box six glass fade-in">
             <div className="box-content">
@@ -447,7 +454,6 @@ export default function Home() {
               </div>
             </div>
           </section>
-
           {/* Soft Skills */}
           <section className="box seven glass fade-in">
             <div className="box-content">
