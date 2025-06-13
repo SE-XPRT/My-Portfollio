@@ -20,7 +20,6 @@ import {
   Linkedin,
   Download,
   Code2,
-  Sparkles,
   Rocket,
   Heart,
 } from "lucide-react";
@@ -45,49 +44,46 @@ const SkillCard = memo(({ skill }) => (
 ));
 
 const ProjectCard = memo(({ project }) => (
-  <div className="project-card hover-lift bg-[var(--SURFACE-LIGHT)] flex flex-col h-full">
-    <div className="project-image relative h-48 md:h-56">
+  <div className="h-full flex flex-col bg-[var(--SURFACE-LIGHT)] rounded-lg overflow-hidden">
+    <div className="relative h-48">
       <Image
         src={project.image}
         alt={project.title}
         fill
-        className="object-cover rounded-t-lg"
-        sizes="(max-width: 768px) 100vw, 50vw"
+        className="object-cover"
+        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         priority={project.priority}
       />
-      <div className="project-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent rounded-t-lg" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
       <div className="absolute bottom-4 left-4 right-4">
-        <h3 className="text-xl md:text-2xl font-bold text-white mb-2">
+        <h3 className="text-lg md:text-xl font-bold text-white mb-2">
           {project.title}
         </h3>
-        <p className="text-white/90 text-sm md:text-base">
-          {project.description}
-        </p>
+        <p className="text-white/90 text-sm">{project.description}</p>
       </div>
     </div>
-    <div className="flex-1 flex flex-col justify-between p-4 md:p-6 space-y-4">
-      <p className="text-[var(--TEXT-SECONDARY)] text-sm md:text-base">
+
+    <div className="flex-1 p-4 flex flex-col justify-between">
+      <p className="text-[var(--TEXT-SECONDARY)] text-sm mb-4">
         {project.details}
       </p>
-      <div className="flex flex-col sm:flex-row gap-3 mt-auto">
+      <div className="flex flex-col sm:flex-row gap-2">
         <a
           href={project.demoUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="btn hover-lift w-full sm:w-auto justify-center bg-[var(--PRIMARY)] hover:bg-[var(--PRIMARY)]/90"
-          data-tooltip="Voir le projet en ligne"
+          className="btn flex-1 justify-center bg-[var(--PRIMARY)]"
         >
-          <SquareArrowOutUpRight size={20} /> Demo
+          <SquareArrowOutUpRight size={18} className="mr-2" /> Demo
         </a>
         {project.codeUrl && (
           <a
             href={project.codeUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn btn-outline hover-lift w-full sm:w-auto justify-center"
-            data-tooltip="Voir le code source"
+            className="btn btn-outline flex-1 justify-center"
           >
-            <Code2 size={20} /> Code
+            <Code2 size={18} className="mr-2" /> Code
           </a>
         )}
       </div>
@@ -97,7 +93,6 @@ const ProjectCard = memo(({ project }) => (
 
 export default function Home() {
   const [name, setName] = useState("Se-Digitals");
-  const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -312,29 +307,20 @@ export default function Home() {
           </section>
           {/* Projets */}
           <section id="projects" className="box three glass fade-in">
-            <div className="box-content overflow">
+            <div className="box-content">
               <div className="box-header">
                 <h2 className="titlebox flex items-center gap-2">
                   <Code2 size={24} className="text-[var(--PRIMARY)]" />
                   Projets
                 </h2>
               </div>
-              <div className="box-body ">
-                {/* Ajout d'un conteneur scrollable horizontal */}
-                <div
-                  className="w-full overflow-x-auto  [&::-webkit-scrollbar]:w-2
-  [&::-webkit-scrollbar-track]:bg-gray-500 [&::-webkit-scrollbar-thumb]:bg-gray-400 [&::-webkit-scrollbar-thumb]:rounded-lg"
-                >
-                  <div className="flex flex-row gap-6 min-w-[600px]">
-                    {projects.map((project, index) => (
-                      <div
-                        key={index}
-                        className="min-w-[320px] max-w-xs flex-shrink-0"
-                      >
-                        <ProjectCard project={project} />
-                      </div>
-                    ))}
-                  </div>
+              <div className="box-body w-full">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-fr">
+                  {projects.map((project, index) => (
+                    <div key={index} className="w-full">
+                      <ProjectCard project={project} />
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
