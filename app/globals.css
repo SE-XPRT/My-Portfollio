@@ -187,7 +187,9 @@ section {
   .box {
     padding: 1rem;
   }
-
+  #home {
+    padding-top: 2.5rem;
+  }
   .one,
   .two,
   .three,
